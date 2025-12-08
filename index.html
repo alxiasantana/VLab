@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>V-Lab</title>
+
+  <!-- ttk sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <script src="https://kit.fontawesome.com/958d1abdde.js" crossorigin="anonymous"></script>
+
+  <style>
+    :root{
+      --bg: #f6f8f9;
+      --card: rgba(255,255,255,0.6);
+      --glass-border: rgba(255,255,255,0.6);
+      --accent: #2e3a3a; /* preto claro */
+      --muted: #656a6b;
+      --radius: 16px;
+      --shadow-soft: 0 8px 30px rgba(17,24,24,0.06);
+      --glass-blur: 8px;
+      --max-width: 1200px;
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background: var(--bg);
+      color: var(--accent);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.45;
+    }
+
+    
+    .wrap{
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 19px;
+    }
+
+    /* NAVBAR */
+    header.appbar{
+      width:100%;
+      position:sticky;
+      top:0;
+      z-index:40;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:20px;
+      backdrop-filter: blur(6px);
+      background: linear-gradient(180deg, rgba(255,255,255,0.76), rgba(255,255,255,0.60));
+      padding:14px 28px;
+      box-shadow: var(--shadow-soft);
+      border-bottom: 1px solid rgba(206, 20, 20, 0.04);
+    }
+    .brand{
+      display:flex;
+      gap:12px;
+      align-items:center;
+    }
+    .brand img{height:44px; width:auto; display:block}
+    .brand h1{font-size:18px; font-weight:600; margin:0; color:var(--accent)}
+
+    nav.main-nav{display:flex; gap:18px; align-items:center}
+    nav.main-nav a{
+      text-decoration:none;
+      color:var(--muted);
+      font-weight:600;
+      padding:8px 12px;
+      border-radius:10px;
+      transition:all .18s ease;
+      font-size:14px;
+    }
+    nav.main-nav a:hover{background:rgba(0,0,0,0.04); color:var(--accent)}
+
+    /* HERO */
+    .hero {
+      margin-top:18px;
+      border-radius:20px;
+      overflow:hidden;
+      position:relative;
+      height:62vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color: white;
+      box-shadow: var(--shadow-soft);
+    }
+
+   /* foto */
+    .hero::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background-image: url("imagensVL/Laboratório-de-Biologia-Molecular.jpg");
+      background-position:center;
+      background-repeat:no-repeat;
+      background-size:cover; 
+      z-index:0;
+      filter: saturate(0.95) contrast(0.9);
+      transform: scale(1.02);
+    }
+
+    /* blur */
+    .hero::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background: linear-gradient(180deg, rgba(0,0,0,0.28), rgba(0,0,0,0.22));
+      z-index:1;
+      backdrop-filter: blur(2px);
+    }
+
+    .hero-inner{
+      position:relative;
+      z-index:2;
+      width:100%;
+      max-width:var(--max-width);
+      padding:40px;
+      display:flex;
+      gap:40px;
+      align-items:center;
+      justify-content:space-between;
+    }
+
+    .hero-copy{
+      max-width:620px;
+    }
+    .hero h2{
+      font-size: clamp(22px, 4vw, 40px);
+      margin:0 0 12px 0;
+      line-height:1.04;
+      font-weight:700;
+      letter-spacing:-0.02em;
+    }
+    .hero p{margin:0 0 20px 0; color:rgba(255,255,255,0.92); font-weight:400}
+
+    .hero-cta{
+      display:flex;
+      gap:12px;
+      align-items:center;
+    }
+    .btn{
+      appearance:none;
+      border:0;
+      padding:12px 18px;
+      border-radius:12px;
+      cursor:pointer;
+      font-weight:600;
+      transition:transform .18s ease, box-shadow .18s ease;
+    }
+    .btn-primary{
+      background: rgba(255,255,255,0.92);
+      color: var(--accent);
+      box-shadow: 0 8px 28px rgba(17,24,24,0.06);
+    }
+    .btn-primary:hover{transform:translateY(-4px); box-shadow: 0 18px 36px rgba(17,24,24,0.08)}
+
+    .btn-ghost{
+      background: transparent;
+      color: rgba(255,255,255,0.95);
+      border:1px solid rgba(255,255,255,0.12);
+    }
+    .btn-ghost:hover{transform:translateY(-2px)}
+
+    /* canto de chamar interprete */
+    .hero-panel{
+      width:360px;
+      max-width:38%;
+      background: rgba(255,255,255,0.12);
+      border-radius:14px;
+      padding:18px;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,0.14);
+      box-shadow: 0 12px 30px rgba(3,10,14,0.18);
+      color: white;
+    }
+
+    .hero-panel h4{margin:0 0 8px 0; font-size:16px}
+    .hero-panel textarea{
+      width:100%;
+      min-height:88px;
+      resize:none;
+      border-radius:10px;
+      border:0;
+      padding:10px;
+      font-size:14px;
+      background: rgba(255,255,255,0.08);
+      color:white;
+      outline:none;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.02);
+    }
+    .hero-panel .panel-row{display:flex; gap:8px; margin-top:10px; align-items:center}
+    .hero-panel .small{
+      font-size:13px;
+      color: rgba(255,255,255,0.9);
+    }
+
+    /* MAIN CONTENT */
+    main{padding:36px 0}
+    .features{
+      display:grid;
+      grid-template-columns: repeat(3,1fr);
+      gap:18px;
+      margin-bottom:28px;
+    }
+    .feature{
+      background: var(--card);
+      border-radius:12px;
+      padding:18px;
+      backdrop-filter: blur(var(--glass-blur));
+      border:1px solid rgba(255,255,255,0.6);
+      box-shadow: 0 10px 30px rgba(3,10,14,0.04);
+      text-align:center;
+    }
+    .feature h3{margin:6px 0 6px; font-size:16px; color:var(--accent)}
+    .feature p{color:var(--muted); font-size:14px}]
+    .traduzir-rapido{
+      
+    }
+
+    /* LABS */
+    .labs{
+      margin-top:18px;
+    }
+    .labs h3{margin-bottom:12px; font-size:20px}
+    .labs-row{
+      display:flex;
+      gap:18px;
+      overflow:auto;
+      padding-bottom:10px;
+    }
+    .lab{
+      min-width:230px;
+      border-radius:12px;
+      overflow:hidden;
+      background:white;
+      box-shadow: 0 10px 30px rgba(3,10,14,0.06);
+      transition: transform .25s ease, box-shadow .25s ease;
+    }
+    .lab img{width:100%; height:150px; object-fit:cover; display:block}
+    .lab .meta{padding:12px 14px}
+    .lab h4{margin:0 0 6px; font-size:16px}
+    .lab p{margin:0; color:var(--muted); font-size:13px}
+
+    .lab:hover{transform:translateY(-8px); box-shadow: 0 20px 40px rgba(3,10,14,0.08)}
+
+    /* CTA section */
+    .cta{
+      margin:32px 0;
+      background: linear-gradient(180deg, rgba(255,255,255,0.9), rgba(255,255,255,0.82));
+      border-radius:14px;
+      padding:26px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:12px;
+      box-shadow: var(--shadow-soft);
+      border:1px solid rgba(0,0,0,0.03);
+    }
+    .cta h3{margin:0}
+    .cta p{margin:0; color:var(--muted)}
+
+    footer{
+      margin-top:40px;
+      color:var(--muted);
+      padding:28px;
+      text-align:center;
+      font-size:14px;
+    }
+
+    section {
+      padding-top: 90px;
+      padding-bottom: 90px;
+    }
+
+    .features {
+      padding: 40px 40px 20px;  /* topo menor */
+      
+    }
+    
+    
+ 
+    .primary {
+      padding: 20px 40px;
+      margin-top: -10px; 
+    }
+
+    .labs-section {
+       padding: 40px 40px 20px;
+       margin-top: -30px; /* sobe os labs */
+    }
+
+
+    /* responsivo */
+    @media (max-width:900px){
+      .hero-inner{flex-direction:column; gap:18px; padding:28px}
+      .hero-panel{width:100%; max-width:100%}
+      .features{grid-template-columns:1fr; gap:12px}
+      .labs-row{gap:12px}
+    }
+    @media (max-width:480px){
+      header.appbar{padding:10px 16px}
+      .hero{height:58vh}
+      .brand h1{font-size:15px}
+      .hero h2{font-size:20px}
+    }
+
+    
+  </style>
+</head>
+<body>
+
+  <header class="appbar wrap">
+    <div class="brand">
+      <img src="imagensVL/NEWWW.png" alt="V-Lab logo">
+    </div>
+
+    <nav class="main-nav" aria-label="Main navigation">
+      <a href="#home">Início</a>
+      <a href="#labs">Laboratórios</a>
+     <a href="#ativar">Ativar VLibras</a>
+    </nav>
+  </header>
+
+  <main class="wrap">
+    <!-- HERO -->
+    <section id="home" class="hero" aria-label="Seção principal">
+      <div class="hero-inner">
+        <div class="hero-copy">
+          <h2>Tradução acessível e rápida para Libras</h2>
+          <p>V-Lab integra o VLibras e facilita o acesso de estudantes e professores às traduções em Libras.</p>
+
+          <div style="margin-top:18px">
+            <button class="btn btn-primary" onclick="document.querySelector('.hero textarea').focus()">Usar agora</button>
+            <button class="btn btn-ghost" onclick="window.location.href='#labs'">Ver laboratórios</button>
+          </div>
+
+        </div>
+        <aside class="hero-panel" aria-hidden="false">
+          <h4>Precisa de um intérprete de Libras do campus?</h4>
+          <p>Solicite atendimento de um intérprete disponível no IFRN.</p>
+          <div class="panel-row">
+          <button class="btn btn-primary">Solicitar Intérprete</button>
+        </div>
+        </aside>
+
+      </div>
+    </section>
+
+    <!-- features 
+     emojis:⚡(U+26A1) 🤝(U+1F91D) ✨(U+2728)-->
+    <section class="features" aria-label="Recursos">
+      <div class="feature">
+        <div style="font-size:28px;color:var(--accent)">🤝</div>
+        <h3>Inclusão</h3>
+        <p>Promove acessibilidade para toda a comunidade.</p>
+      </div>
+      <div class="feature">
+        <div style="font-size:28px;color:var(--accent)">⚡</div>
+        <h3>Integração</h3>
+        <p>Compatível com o plugin VLibras.</p>
+      </div>
+      <div class="feature">
+        <div style="font-size:28px;color:var(--accent)">📁</div>
+        <h3>Praticidade</h3>
+        <p>Salve traduções e acesse rapidamente.</p>
+      </div>
+    </section>
+
+<!--tradutor rápido-->
+<aside class="painel-tradutor">
+  <h2>Tradutor rápido</h2>
+  <textarea id="textoRapido" placeholder="Digite o texto que quer traduzir... "></textarea>
+
+ <!-- <div class="panel-row">
+    <button class="btn btn-primary" onclick="salvarTextoRapido()">Enviar ao VLibras</button>
+  </div>
+
+  <div id="listaRapido" style="margin-top:12px"></div>
+</aside> -->
+
+
+    <!-- LABS -->
+    <section id="labs" class="labs">
+      <h2>Laboratórios</h2>
+      <div class="labs-row" aria-label="Lista de laboratórios">
+        <div class="lab">
+          <img src="imagensVL/Laboratório-de-Biologia-Molecular.jpg" alt="Biologia">
+          <div class="meta">
+            <h4>Biologia</h4>
+            <p>Equipamentos e projetos de biotecnologia.</p>
+          </div>
+        </div>
+
+        <div class="lab">
+          <img src="imagensVL/eletro.jpeg" alt="Eletrônica">
+          <div class="meta">
+            <h4>Eletrônica</h4>
+            <p>Montagem de circuitos e laboratório prático.</p>
+          </div>
+        </div>
+
+        <div class="lab">
+          <img src="imagensVL/infolab.jpg" alt="Informática">
+          <div class="meta">
+            <h4>Informática</h4>
+            <p>Rede, programação e infraestrutura.</p>
+          </div>
+        </div>
+
+        <div class="lab">
+          <img src="imagensVL/labfisica_cropped_resized_0.png" alt="Física">
+          <div class="meta">
+            <h4>Física</h4>
+            <p>Experimentos e instrumentação.</p>
+          </div>
+        </div>
+
+        <div class="lab">
+          <img src="imagensVL/manutencao.jpeg" alt="Manutenção">
+          <div class="meta">
+            <h4>Manutenção de Comput.</h4>
+            <p>Serviços e reparos de hardware.</p>
+          </div>
+        </div>
+
+        <div class="lab">
+          <img src="imagensVL/fisicaquim.jpg" alt="Química">
+          <div class="meta">
+            <h4>Química</h4>
+            <p>Análises, experimentos e segurança.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- cta -->
+    <section class="cta" id="ativar">
+      <div>
+        <h3>Quer ativar o VLibras agora?</h3>
+        <p>Ative o plugin para que os conteúdos em texto sejam traduzidos para Libras.</p>
+      </div>
+      <div>
+        <button class="btn btn-primary" onclick="ativarVLibras()">Ativar VLibras</button>
+      </div>
+    </section>
+
+    <footer>
+      © 2025 V-Lab • IFRN — Todos os direitos reservados
+    </footer>
+  </main>
+
+  <!-- VLibras widget (mantive, o widget será carregado quando online) -->
+  <div vw class="enabled" aria-hidden="true" style="display:none">
+    <div vw-access-button class="active"></div>
+    <div vw-plugin-wrapper></div>
+  </div>
+
+  <script>
+    // Pequeno JS para histórico local (salva no localStorage e atualiza a lista na hero)
+    const CACHE_KEY = 'vlab_cache_v1';
+
+    function loadCache() {
+      try { return JSON.parse(localStorage.getItem(CACHE_KEY) || '[]'); }
+      catch(e) { return []; }
+    }
+    function saveCache(list) { localStorage.setItem(CACHE_KEY, JSON.stringify(list)); }
+
+    function salvarTexto(){
+      const txt = document.getElementById('textoHero').value.trim();
+      if(!txt) return alert('Digite algo para salvar.');
+      const cache = loadCache();
+      cache.unshift({conteudo: txt, ts: Date.now()});
+      saveCache(cache.slice(0,50));
+      atualizarLista();
+      // 
+      alert('Texto salvo! Clique no ícone do VLibras (canto) para traduzir.');
+    }
+
+    function atualizarLista(){
+      const list = loadCache();
+      const area = document.getElementById('listaHero');
+      if(!area) return;
+      if(list.length === 0){ area.innerHTML = '<div style="color:rgba(255,255,255,0.85)">Nenhum item salvo.</div>'; return; }
+      area.innerHTML = list.slice(0,6).map(i => {
+        const t = i.conteudo.length > 80 ? i.conteudo.slice(0,80) + '…' : i.conteudo;
+        return `<div style="padding:8px 10px;border-radius:8px;background:rgba(255,255,255,0.06);margin-bottom:8px;font-size:13px">${t}</div>`;
+      }).join('');
+    }
+
+    window.addEventListener('load', atualizarLista);
+
+    // Função p ativar o widget VL
+    function ativarVLibras(){
+      if(window.VLibras) { alert('VLibras já ativo'); return; }
+      const s = document.createElement('script');
+      s.src = 'https://vlibras.gov.br/app/vlibras-plugin.js';
+      s.onload = () => {
+        new window.VLibras.Widget('https://vlibras.gov.br/app');
+        // mostrar o botão do VLibras
+        const vw = document.querySelector('[vw]');
+        if(vw) vw.style.display = '';
+      };
+      document.body.appendChild(s);
+    }
+  </script>
+</body>
+</html>
