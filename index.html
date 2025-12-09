@@ -221,7 +221,7 @@
       text-align:center;
     }
     .feature h3{margin:6px 0 6px; font-size:16px; color:var(--accent)}
-    .feature p{color:var(--muted); font-size:14px}]
+    .feature p{color:var(--muted); font-size:14px}
     .traduzir-rapido{
       
     }
@@ -337,9 +337,7 @@
         <div class="hero-copy">
           <h2>Tradução acessível e rápida para Libras</h2>
           <p>V-Lab integra o VLibras e facilita o acesso de estudantes e professores às traduções em Libras.</p>
-
           <div style="margin-top:18px">
-            <button class="btn btn-primary" onclick="document.querySelector('.hero textarea').focus()">Usar agora</button>
             <button class="btn btn-ghost" onclick="window.location.href='#labs'">Ver laboratórios</button>
           </div>
 
@@ -455,18 +453,12 @@
     </section>
 
     <footer>
-      © 2025 V-Lab • IFRN — Todos os direitos reservados
+      V-Lab • IFRN
     </footer>
   </main>
-
-  <!-- VLibras widget (mantive, o widget será carregado quando online) -->
-  <div vw class="enabled" aria-hidden="true" style="display:none">
-    <div vw-access-button class="active"></div>
-    <div vw-plugin-wrapper></div>
-  </div>
-
+ <!--codigo vlibras aki-->
   <script>
-    // Pequeno JS para histórico local (salva no localStorage e atualiza a lista na hero)
+    // salva no localStorage e atualiza a lista na hero
     const CACHE_KEY = 'vlab_cache_v1';
 
     function loadCache() {
@@ -482,7 +474,6 @@
       cache.unshift({conteudo: txt, ts: Date.now()});
       saveCache(cache.slice(0,50));
       atualizarLista();
-      // 
       alert('Texto salvo! Clique no ícone do VLibras (canto) para traduzir.');
     }
 
