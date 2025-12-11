@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
+<link rel="stylesheet" href="input.css">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
@@ -47,8 +49,7 @@
     /* NAVBAR */
     header.appbar{
       width:100%;
-      position:sticky;
-      top:0;
+      position:sticky; top:0;
       z-index:40;
       display:flex;
       align-items:center;
@@ -235,28 +236,62 @@
       gap:12px;
       box-shadow: var(--shadow-soft);
       border:1px solid rgba(0,0,0,0.03);
+      
     }
-
+    .panel-row2{ 
+     padding-top: 15px
+    }
     .traduzir-rapido h2{text-align: center;}
+    
 
     /* LABSSSSS */
     .labs{
       margin-top:18px;
     }
     .labs h3{margin-bottom:12px; font-size:20px}
+    
+    .carousel-container {
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+
+      .arrow {
+        background: white;
+        border: none;
+        font-size: 30px;
+        cursor: pointer;
+        padding: 10px;
+        border-radius: 50%;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        z-index: 10;
+        transition: 0.2s;
+      }
+
+        .arrow:hover {
+          transform: scale(1.1);
+        }
+
     .labs-row{
       display:flex;
       gap:18px;
-      overflow:auto;
-      padding-bottom:10px;
+    /*flex-wrap: wrap; */
+      overflow: auto; 
+      padding-bottom:15px;
+      padding-top: 10px;
     }
+
     .lab{
-      min-width:230px;
-      border-radius:12px;
-      overflow:hidden;
-      background:white;
+      max-width:230px;  
+    }
+
+    .lab{
+      min-width: 260px;
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
       box-shadow: 0 10px 30px rgba(3,10,14,0.06);
-      transition: transform .25s ease, box-shadow .25s ease;
+      transition: transform .25s ease;
     }
     .lab img{width:100%; height:150px; object-fit:cover; display:block}
     .lab .meta{padding:12px 14px}
@@ -295,7 +330,7 @@
     }
 
     .features {
-      padding: 40px 40px 20px;  /* topo menor */
+      padding: 40px 40px 20px; 
       
     }
     
@@ -392,20 +427,22 @@
 <section class="traduzir-rapido">
 <div class="painel-tradutor">
   <h2>Tradutor rápido</h2>
-  <textarea id="textoRapido" placeholder="Digite o texto que quer traduzir... "></textarea>
+  <input type="textoRapido" placeholder="Digite o texto que quer traduzir...">
 
- <!-- <div class="panel-row">
-    <button class="btn btn-primary" onclick="salvarTextoRapido()">Enviar ao VLibras</button>
+
+ <div class="panel-row2">
+    <button class="btn btn-primary" onclick="salvarTextoRapido()"> Salvar </button>
   </div>
 
   <div id="listaRapido" style="margin-top:12px"></div>
-</aside> -->
+</aside> 
 </section>
 
     <!-- LABS -->
     <section id="labs" class="labs">
       <h2>Laboratórios</h2>
       <div class="labs-row" aria-label="Lista de laboratórios">
+
         <div class="lab">
           <img src="imagensVL/Laboratório-de-Biologia-Molecular.jpg" alt="Biologia">
           <div class="meta">
@@ -452,6 +489,8 @@
             <h4>Química</h4>
             <p>Análises, experimentos e segurança.</p>
           </div>
+          
+
         </div>
 
       </div>
@@ -530,6 +569,22 @@
       };
       document.body.appendChild(s);
     }
+
+    const row = document.getElementById("carousel");
+  const left = document.getElementById("arrowLeft");
+  const right = document.getElementById("arrowRight");
+
+  const scrollAmount = 300; // distância do movimento em px
+
+  right.onclick = () => {
+    row.scrollBy({ left: scrollAmount, behavior: "smooth" });
+  };
+
+  left.onclick = () => {
+    row.scrollBy({ left: -scrollAmount, behavior: "smooth" });
+  };
+
+    
   </script>
 </body>
 </html>
