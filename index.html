@@ -80,7 +80,7 @@
     }
     nav.main-nav a:hover{background:rgba(0,0,0,0.04); color:var(--accent)}
 
-    /* HERO */
+    /* HEROOOOOOOOOOO */
     .hero {
       margin-top:18px;
       border-radius:20px;
@@ -94,7 +94,7 @@
       box-shadow: var(--shadow-soft);
     }
 
-   /* foto */
+   /* foto de trá*/
     .hero::before{
       content:"";
       position:absolute;
@@ -203,7 +203,7 @@
       color: rgba(255,255,255,0.9);
     }
 
-    /* MAIN CONTENT */
+   
     main{padding:36px 0}
     .features{
       display:grid;
@@ -222,11 +222,24 @@
     }
     .feature h3{margin:6px 0 6px; font-size:16px; color:var(--accent)}
     .feature p{color:var(--muted); font-size:14px}
+    
+
     .traduzir-rapido{
-      
+      margin:32px 0;
+      background: linear-gradient(180deg, rgba(255,255,255,0.9), rgba(255,255,255,0.82));
+      border-radius:14px;
+      padding:26px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:12px;
+      box-shadow: var(--shadow-soft);
+      border:1px solid rgba(0,0,0,0.03);
     }
 
-    /* LABS */
+    .traduzir-rapido h2{text-align: center;}
+
+    /* LABSSSSS */
     .labs{
       margin-top:18px;
     }
@@ -320,7 +333,7 @@
 
   <header class="appbar wrap">
     <div class="brand">
-      <img src="imagensVL/NEWWW.png" alt="V-Lab logo">
+      <img src="imagensVL/neww2.png" alt="V-Lab logo">
     </div>
 
     <nav class="main-nav" aria-label="Main navigation">
@@ -343,17 +356,19 @@
 
         </div>
         <aside class="hero-panel" aria-hidden="false">
-          <h4>Precisa de um intérprete de Libras do campus?</h4>
-          <p>Solicite atendimento de um intérprete disponível no IFRN.</p>
+          <h4>Está precisando do acompanhamento de um intérprete?</h4>
+          <p>Solicite atendimento de um profissional disponível no campus.</p>
           <div class="panel-row">
+            <a href="https://wa.me/558481563156">
           <button class="btn btn-primary">Solicitar Intérprete</button>
+          </a>
         </div>
         </aside>
 
       </div>
     </section>
 
-    <!-- features 
+    <!-- feat 
      emojis:⚡(U+26A1) 🤝(U+1F91D) ✨(U+2728)-->
     <section class="features" aria-label="Recursos">
       <div class="feature">
@@ -374,7 +389,8 @@
     </section>
 
 <!--tradutor rápido-->
-<aside class="painel-tradutor">
+<section class="traduzir-rapido">
+<div class="painel-tradutor">
   <h2>Tradutor rápido</h2>
   <textarea id="textoRapido" placeholder="Digite o texto que quer traduzir... "></textarea>
 
@@ -384,7 +400,7 @@
 
   <div id="listaRapido" style="margin-top:12px"></div>
 </aside> -->
-
+</section>
 
     <!-- LABS -->
     <section id="labs" class="labs">
@@ -445,7 +461,7 @@
     <section class="cta" id="ativar">
       <div>
         <h3>Quer ativar o VLibras agora?</h3>
-        <p>Ative o plugin para que os conteúdos em texto sejam traduzidos para Libras.</p>
+        <p>Ative o plugin para que os conteúdos em texto sejam traduzidos.</p>
       </div>
       <div>
         <button class="btn btn-primary" onclick="ativarVLibras()">Ativar VLibras</button>
@@ -467,7 +483,7 @@
   <script>
     new window.VLibras.Widget('https://vlibras.gov.br/app');
   </script>
-  
+
   <script>
     // salva no localStorage e atualiza a lista na hero
     const CACHE_KEY = 'vlab_cache_v1';
