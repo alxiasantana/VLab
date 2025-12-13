@@ -2,326 +2,461 @@
 <html lang="pt-BR">
 
 <link rel="stylesheet" href="input.css">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>V-Lab</title>
 
-  <!-- ttk sans -->
+  <!-- fontes -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=TikTok+Sans:opsz,wght@12..36,300..900&display=swap"
+    rel="stylesheet">
+
   <script src="https://kit.fontawesome.com/958d1abdde.js" crossorigin="anonymous"></script>
 
   <style>
-    :root{
+    :root {
       --bg: #f6f8f9;
-      --card: rgba(255,255,255,0.6);
-      --glass-border: rgba(255,255,255,0.6);
-      --accent: #2e3a3a; /* preto claro */
+      --card: rgba(255, 255, 255, 0.6);
+      --glass-border: rgba(255, 255, 255, 0.6);
+      --accent: #2e3a3a;
+      /* preto claro */
       --muted: #656a6b;
       --radius: 16px;
-      --shadow-soft: 0 8px 30px rgba(17,24,24,0.06);
+      --shadow-soft: 0 8px 30px rgba(17, 24, 24, 0.06);
       --glass-blur: 8px;
       --max-width: 1200px;
     }
 
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0;
+    * {
+      box-sizing: border-box
+    }
+
+    html,
+    body {
+      height: 100%
+    }
+
+    body {
+      margin: 0;
       font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
       background: var(--bg);
       color: var(--accent);
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
-      line-height:1.45;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      line-height: 1.45;
     }
 
-    
-    .wrap{
+
+    .wrap {
       max-width: var(--max-width);
       margin: 0 auto;
       padding: 19px;
     }
 
     /* NAVBAR */
-    header.appbar{
-      width:100%;
-      position:sticky; top:0;
-      z-index:40;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:20px;
+    header.appbar {
+      width: 100%;
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
       backdrop-filter: blur(6px);
-      background: linear-gradient(180deg, rgba(255,255,255,0.76), rgba(255,255,255,0.60));
-      padding:14px 28px;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.76), rgba(255, 255, 255, 0.60));
+      padding: 14px 28px;
       box-shadow: var(--shadow-soft);
       border-bottom: 1px solid rgba(206, 20, 20, 0.04);
     }
-    .brand{
-      display:flex;
-      gap:12px;
-      align-items:center;
-    }
-    .brand img{height:44px; width:auto; display:block}
-    .brand h1{font-size:18px; font-weight:600; margin:0; color:var(--accent)}
 
-    nav.main-nav{display:flex; gap:18px; align-items:center}
-    nav.main-nav a{
-      text-decoration:none;
-      color:var(--muted);
-      font-weight:600;
-      padding:8px 12px;
-      border-radius:10px;
-      transition:all .18s ease;
-      font-size:14px;
+    .brand {
+      display: flex;
+      gap: 12px;
+      align-items: center;
     }
-    nav.main-nav a:hover{background:rgba(0,0,0,0.04); color:var(--accent)}
+
+    .brand img {
+      height: 44px;
+      width: auto;
+      display: block
+    }
+
+    .brand h1 {
+      font-size: 18px;
+      font-weight: 600;
+      margin: 0;
+      color: var(--accent)
+    }
+
+    nav.main-nav {
+      display: flex;
+      gap: 18px;
+      align-items: center
+    }
+
+    nav.main-nav a {
+      text-decoration: none;
+      color: var(--muted);
+      font-weight: 600;
+      padding: 8px 12px;
+      border-radius: 10px;
+      transition: all .18s ease;
+      font-size: 14px;
+    }
+
+    nav.main-nav a:hover {
+      background: rgba(0, 0, 0, 0.04);
+      color: var(--accent)
+    }
 
     /* HEROOOOOOOOOOO */
     .hero {
-      margin-top:18px;
-      border-radius:20px;
-      overflow:hidden;
-      position:relative;
-      height:62vh;
-      display:flex;
-      align-items:center;
-      justify-content:center;
+      margin-top: 18px;
+      border-radius: 20px;
+      overflow: hidden;
+      position: relative;
+      height: 62vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       color: white;
       box-shadow: var(--shadow-soft);
     }
 
-   /* foto de trá*/
-    .hero::before{
-      content:"";
-      position:absolute;
-      inset:0;
+    /* foto de trá*/
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
       background-image: url("imagensVL/Laboratório-de-Biologia-Molecular.jpg");
-      background-position:center;
-      background-repeat:no-repeat;
-      background-size:cover; 
-      z-index:0;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      z-index: 0;
       filter: saturate(0.95) contrast(0.9);
       transform: scale(1.02);
     }
 
     /* blur */
-    .hero::after{
-      content:"";
-      position:absolute;
-      inset:0;
-      background: linear-gradient(180deg, rgba(0,0,0,0.28), rgba(0,0,0,0.22));
-      z-index:1;
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(0, 0, 0, 0.28), rgba(0, 0, 0, 0.22));
+      z-index: 1;
       backdrop-filter: blur(2px);
     }
 
-    .hero-inner{
-      position:relative;
-      z-index:2;
-      width:100%;
-      max-width:var(--max-width);
-      padding:40px;
-      display:flex;
-      gap:40px;
-      align-items:center;
-      justify-content:space-between;
+    .hero-inner {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      max-width: var(--max-width);
+      padding: 40px;
+      display: flex;
+      gap: 40px;
+      align-items: center;
+      justify-content: space-between;
     }
 
-    .hero-copy{
-      max-width:620px;
+    .hero-copy {
+      max-width: 620px;
     }
-    .hero h2{
+
+    .hero h2 {
       font-size: clamp(22px, 4vw, 40px);
-      margin:0 0 12px 0;
-      line-height:1.04;
-      font-weight:700;
-      letter-spacing:-0.02em;
+      margin: 0 0 12px 0;
+      line-height: 1.04;
+      font-weight: 700;
+      letter-spacing: -0.02em;
     }
-    .hero p{margin:0 0 20px 0; color:rgba(255,255,255,0.92); font-weight:400}
 
-    .hero-cta{
-      display:flex;
-      gap:12px;
-      align-items:center;
+    .hero p {
+      margin: 0 0 20px 0;
+      color: rgba(255, 255, 255, 0.92);
+      font-weight: 400
     }
-    .btn{
-      appearance:none;
-      border:0;
-      padding:12px 18px;
-      border-radius:12px;
-      cursor:pointer;
-      font-weight:600;
-      transition:transform .18s ease, box-shadow .18s ease;
+
+    .hero-cta {
+      display: flex;
+      gap: 12px;
+      align-items: center;
     }
-    .btn-primary{
-      background: rgba(255,255,255,0.92);
+
+    .btn {
+      appearance: none;
+      border: 0;
+      padding: 12px 18px;
+      border-radius: 12px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: transform .18s ease, box-shadow .18s ease;
+    }
+
+    .btn-primary {
+      background: rgba(255, 255, 255, 0.92);
       color: var(--accent);
-      box-shadow: 0 8px 28px rgba(17,24,24,0.06);
+      box-shadow: 0 8px 28px rgba(17, 24, 24, 0.06);
     }
-    .btn-primary:hover{transform:translateY(-4px); box-shadow: 0 18px 36px rgba(17,24,24,0.08)}
 
-    .btn-ghost{
-      background: transparent;
-      color: rgba(255,255,255,0.95);
-      border:1px solid rgba(255,255,255,0.12);
+    .btn-primary:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 18px 36px rgba(17, 24, 24, 0.08)
     }
-    .btn-ghost:hover{transform:translateY(-2px)}
+
+    .btn-ghost {
+      background: transparent;
+      color: rgba(255, 255, 255, 0.95);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    .btn-ghost:hover {
+      transform: translateY(-2px)
+    }
 
     /* canto de chamar interprete */
-    .hero-panel{
-      width:360px;
-      max-width:38%;
-      background: rgba(255,255,255,0.12);
-      border-radius:14px;
-      padding:18px;
+    .hero-panel {
+      width: 360px;
+      max-width: 38%;
+      background: rgba(255, 255, 255, 0.12);
+      border-radius: 14px;
+      padding: 18px;
       backdrop-filter: blur(10px);
-      border: 1px solid rgba(255,255,255,0.14);
-      box-shadow: 0 12px 30px rgba(3,10,14,0.18);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      box-shadow: 0 12px 30px rgba(3, 10, 14, 0.18);
       color: white;
     }
 
-    .hero-panel h4{margin:0 0 8px 0; font-size:16px}
-    .hero-panel textarea{
-      width:100%;
-      min-height:88px;
-      resize:none;
-      border-radius:10px;
-      border:0;
-      padding:10px;
-      font-size:14px;
-      background: rgba(255,255,255,0.08);
-      color:white;
-      outline:none;
-      box-shadow: inset 0 1px 0 rgba(255,255,255,0.02);
-    }
-    .hero-panel .panel-row{display:flex; gap:8px; margin-top:10px; align-items:center}
-    .hero-panel .small{
-      font-size:13px;
-      color: rgba(255,255,255,0.9);
+    .hero-panel h4 {
+      margin: 0 0 8px 0;
+      font-size: 16px
     }
 
-   
-    main{padding:36px 0}
-    .features{
-      display:grid;
-      grid-template-columns: repeat(3,1fr);
-      gap:18px;
-      margin-bottom:28px;
+    .hero-panel textarea {
+      width: 100%;
+      min-height: 88px;
+      resize: none;
+      border-radius: 10px;
+      border: 0;
+      padding: 10px;
+      font-size: 14px;
+      background: rgba(255, 255, 255, 0.08);
+      color: white;
+      outline: none;
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.02);
     }
-    .feature{
+
+    .hero-panel .panel-row {
+      display: flex;
+      gap: 8px;
+      margin-top: 10px;
+      align-items: center
+    }
+
+    .hero-panel .small {
+      font-size: 13px;
+      color: rgba(255, 255, 255, 0.9);
+    }
+
+
+    main {
+      padding: 36px 0
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-bottom: 28px;
+    }
+
+    .feature {
       background: var(--card);
-      border-radius:12px;
-      padding:18px;
+      border-radius: 12px;
+      padding: 18px;
       backdrop-filter: blur(var(--glass-blur));
-      border:1px solid rgba(255,255,255,0.6);
-      box-shadow: 0 10px 30px rgba(3,10,14,0.04);
-      text-align:center;
+      border: 1px solid rgba(255, 255, 255, 0.6);
+      box-shadow: 0 10px 30px rgba(109, 109, 109, 0.04);
+      text-align: center;
     }
-    .feature h3{margin:6px 0 6px; font-size:16px; color:var(--accent)}
-    .feature p{color:var(--muted); font-size:14px}
-    
 
-    .traduzir-rapido{
-      margin:32px 0;
-      background: linear-gradient(180deg, rgba(255,255,255,0.9), rgba(255,255,255,0.82));
-      border-radius:14px;
-      padding:26px;
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      gap:12px;
+    .feature h3 {
+      margin: 6px 0 6px;
+      font-size: 16px;
+      color: var(--accent)
+    }
+
+    .feature p {
+      color: var(--muted);
+      font-size: 14px
+    }
+
+
+    .traduzir-rapido {
+      margin: 32px 0;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.82));
+      border-radius: 14px;
+      padding: 26px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
       box-shadow: var(--shadow-soft);
-      border:1px solid rgba(0,0,0,0.03);
-      
+      border: 1px solid rgba(0, 0, 0, 0.03);
+
     }
-    .panel-row2{ 
-     padding-top: 15px
+
+    .panel-row2 {
+      padding-top: 15px
     }
-    .traduzir-rapido h2{text-align: center;}
-    
+
+    .traduzir-rapido h2 {
+      text-align: center;
+    }
+
 
     /* LABSSSSS */
-    .labs{
-      margin-top:18px;
+    .labs {
+      margin-top: 18px;
     }
-    .labs h3{margin-bottom:12px; font-size:20px}
-    
+
+    .labs h3 {
+      margin-bottom: 12px;
+      font-size: 20px
+    }
+
     .carousel-container {
       position: relative;
       display: flex;
       align-items: center;
     }
 
-      .arrow {
-        background: white;
-        border: none;
-        font-size: 30px;
-        cursor: pointer;
-        padding: 10px;
-        border-radius: 50%;
-        box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-        z-index: 10;
-        transition: 0.2s;
-      }
+    .arrow {
+      background: rgb(243, 243, 243);
+      border: none;
+      font-size: 30px;
+      color: rgb(15, 121, 121);
+      cursor: pointer;
+      padding: 4px 10px;
+      border-radius: 50%;
+      /*  box-shadow: 0 2px 6px rgba(0,0,0,0.15); */
+      z-index: 10;
+      transition: 0.2s;
+    }
 
-        .arrow:hover {
-          transform: scale(1.1);
-        }
+    .arrow:hover {
+      transform: scale(1);
+    }
 
-    .labs-row{
-      display:flex;
-      gap:18px;
-    /*flex-wrap: wrap; */
-      overflow: auto; 
-      padding-bottom:15px;
+    .labs-row {
+      display: flex;
+      gap: 18px;
+      overflow: hidden;
+      padding-bottom: 10px;
       padding-top: 10px;
     }
 
-    .lab{
-      max-width:230px;  
+    .lab {
+      max-width: 250px;
     }
 
-    .lab{
-      min-width: 260px;
+    .lab {
+      min-width: 250px;
       background: white;
       border-radius: 12px;
       overflow: hidden;
-      box-shadow: 0 10px 30px rgba(3,10,14,0.06);
+      box-shadow: 0 10px 3px rgba(117, 117, 117, 0.06);
       transition: transform .25s ease;
     }
-    .lab img{width:100%; height:150px; object-fit:cover; display:block}
-    .lab .meta{padding:12px 14px}
-    .lab h4{margin:0 0 6px; font-size:16px}
-    .lab p{margin:0; color:var(--muted); font-size:13px}
 
-    .lab:hover{transform:translateY(-8px); box-shadow: 0 20px 40px rgba(3,10,14,0.08)}
+    .lab img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      display: block
+    }
+
+    .lab .meta {
+      padding: 12px 14px
+    }
+
+    .lab h4 {
+      margin: 0 0 6px;
+      font-size: 16px
+    }
+
+    .lab p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 13px
+    }
+
+    .lab:hover {
+      transform: translateY(-8px);
+    }
+
+    .lab-btn {
+      width: 100%;
+      border: none;
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      cursor: pointer;
+      text-align: left;
+      padding: 0;
+      transition: transform .25s ease;
+    }
+
+    .lab-btn:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(3, 10, 14, 0.08);
+    }
+
+    .lab-btn img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      display: block;
+    }
+
 
     /* CTA section */
-    .cta{
-      margin:32px 0;
-      background: linear-gradient(180deg, rgba(255,255,255,0.9), rgba(255,255,255,0.82));
-      border-radius:14px;
-      padding:26px;
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      gap:12px;
+    .cta {
+      margin: 32px 0;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.82));
+      border-radius: 14px;
+      padding: 26px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
       box-shadow: var(--shadow-soft);
-      border:1px solid rgba(0,0,0,0.03);
+      border: 1px solid rgba(0, 0, 0, 0.03);
     }
-    .cta h3{margin:0}
-    .cta p{margin:0; color:var(--muted)}
 
-    footer{
-      margin-top:40px;
-      color:var(--muted);
-      padding:28px;
-      text-align:center;
-      font-size:14px;
+    .cta h3 {
+      margin: 0
+    }
+
+    .cta p {
+      margin: 0;
+      color: var(--muted)
+    }
+
+    footer {
+      margin-top: 40px;
+      color: var(--muted);
+      padding: 28px;
+      text-align: center;
+      font-size: 14px;
     }
 
     section {
@@ -330,40 +465,67 @@
     }
 
     .features {
-      padding: 40px 40px 20px; 
-      
+      padding: 40px 40px 20px;
+
     }
-    
-    
- 
+
+
+
     .primary {
       padding: 20px 40px;
-      margin-top: -10px; 
+      margin-top: -10px;
     }
 
     .labs-section {
-       padding: 40px 40px 20px;
-       margin-top: -30px; /* sobe os labs */
+      padding: 40px 40px 20px;
+      margin-top: -30px;
+      /* sobe os labs */
     }
 
 
     /* responsivo */
-    @media (max-width:900px){
-      .hero-inner{flex-direction:column; gap:18px; padding:28px}
-      .hero-panel{width:100%; max-width:100%}
-      .features{grid-template-columns:1fr; gap:12px}
-      .labs-row{gap:12px}
-    }
-    @media (max-width:480px){
-      header.appbar{padding:10px 16px}
-      .hero{height:58vh}
-      .brand h1{font-size:15px}
-      .hero h2{font-size:20px}
+    @media (max-width:900px) {
+      .hero-inner {
+        flex-direction: column;
+        gap: 18px;
+        padding: 28px
+      }
+
+      .hero-panel {
+        width: 100%;
+        max-width: 100%
+      }
+
+      .features {
+        grid-template-columns: 1fr;
+        gap: 12px
+      }
+
+      .labs-row {
+        gap: 12px
+      }
     }
 
-    
+    @media (max-width:480px) {
+      header.appbar {
+        padding: 10px 16px
+      }
+
+      .hero {
+        height: 58vh
+      }
+
+      .brand h1 {
+        font-size: 15px
+      }
+
+      .hero h2 {
+        font-size: 20px
+      }
+    }
   </style>
 </head>
+
 <body>
 
   <header class="appbar wrap">
@@ -374,7 +536,7 @@
     <nav class="main-nav" aria-label="Main navigation">
       <a href="#home">Início</a>
       <a href="#labs">Laboratórios</a>
-     <a href="#ativar">Ativar VLibras</a>
+      <a href="#ativar">Ativar VLibras</a>
     </nav>
   </header>
 
@@ -395,16 +557,16 @@
           <p>Solicite atendimento de um profissional disponível no campus.</p>
           <div class="panel-row">
             <a href="https://wa.me/558481563156">
-          <button class="btn btn-primary">Solicitar Intérprete</button>
-          </a>
-        </div>
+              <button class="btn btn-primary">Solicitar Intérprete</button>
+            </a>
+          </div>
         </aside>
 
       </div>
     </section>
 
     <!-- feat 
-     emojis:⚡(U+26A1) 🤝(U+1F91D) ✨(U+2728)-->
+      emojis:⚡(U+26A1) 🤝(U+1F91D) ✨(U+2728)-->
     <section class="features" aria-label="Recursos">
       <div class="feature">
         <div style="font-size:28px;color:var(--accent)">🤝</div>
@@ -423,77 +585,97 @@
       </div>
     </section>
 
-<!--tradutor rápido-->
-<section class="traduzir-rapido">
-<div class="painel-tradutor">
-  <h2>Tradutor rápido</h2>
-  <input type="textoRapido" placeholder="Digite o texto que quer traduzir...">
+    <!--tradutor rápido-->
+    <section class="traduzir-rapido">
+      <div class="painel-tradutor">
+        <h2>Tradutor rápido</h2>
+        <input type="text" id="textoRapido" placeholder="Digite o texto que quer traduzir...">
 
 
- <div class="panel-row2">
-    <button class="btn btn-primary" onclick="salvarTextoRapido()"> Salvar </button>
-  </div>
 
-  <div id="listaRapido" style="margin-top:12px"></div>
-</aside> 
-</section>
+        <div class="panel-row2">
+          <button class="btn btn-primary" onclick="salvarTextoRapido()"> Salvar </button>
+        </div>
+
+        <div id="listaRapido" style="margin-top:12px"></div>
+        </aside>
+    </section>
 
     <!-- LABS -->
     <section id="labs" class="labs">
       <h2>Laboratórios</h2>
       <div class="labs-row" aria-label="Lista de laboratórios">
 
-        <div class="lab">
-          <img src="imagensVL/Laboratório-de-Biologia-Molecular.jpg" alt="Biologia">
-          <div class="meta">
-            <h4>Biologia</h4>
-            <p>Equipamentos e projetos de biotecnologia.</p>
+        <!-- transformar em botão --><button id="arrowLeft" class="arrow">‹</button>
+        <div id="carousel" class="labs-row">
+
+          <div class="lab">
+            <button class="lab-btn" onclick="window.location.href='labs/biologia.html'">
+              <img src="imagensVL/Laboratório-de-Biologia-Molecular.jpg" alt="Biologia">
+              <div class="meta">
+                <h4>Biologia</h4>
+                <p>Equipamentos e projetos de biotecnologia.</p>
+              </div>
+            </button>
           </div>
-        </div>
 
-        <div class="lab">
-          <img src="imagensVL/eletro.jpeg" alt="Eletrônica">
-          <div class="meta">
-            <h4>Eletrônica</h4>
-            <p>Montagem de circuitos e laboratório prático.</p>
+
+          <div class="lab">
+            <button class="lab-btn" onclick="window.location.href='labs/eletronica.html'">
+              <img src="imagensVL/eletro.jpeg" alt="Eletrônica">
+              <div class="meta">
+                <h4>Eletrônica</h4>
+                <p>Montagem de circuitos e arduíno.ﾠﾠﾠﾠﾠﾠﾠﾠﾠﾠﾠﾠﾠﾠﾠﾠﾠﾠﾠﾠﾠﾠﾠﾠﾠﾠ</p>
+              </div>
+            </button>
           </div>
-        </div>
 
-        <div class="lab">
-          <img src="imagensVL/infolab.jpg" alt="Informática">
-          <div class="meta">
-            <h4>Informática</h4>
-            <p>Rede, programação e infraestrutura.</p>
+          <div class="lab">
+            <button class="lab-btn" onclick="window.location.href='labs/informatica.html'">
+              <img src="imagensVL/infolab.jpg" alt="Informática">
+              <div class="meta">
+                <h4>Informática</h4>
+                <p>Rede, programação e infraestrutura.ﾠﾠﾠﾠﾠﾠﾠﾠﾠﾠﾠ</p>
+              </div>
+            </button>
           </div>
-        </div>
 
-        <div class="lab">
-          <img src="imagensVL/labfisica_cropped_resized_0.png" alt="Física">
-          <div class="meta">
-            <h4>Física</h4>
-            <p>Experimentos e instrumentação.</p>
+          <div class="lab">
+            <button class="lab-btn" onclick="window.location.href='labs/fisica.html'">
+              <img src="imagensVL/labfisica_cropped_resized_0.png" alt="Física">
+              <div class="meta">
+                <h4>Física</h4>
+                <p>Experimentos e instrumentação.ﾠﾠﾠﾠﾠﾠ</p>
+              </div>
+            </button>
           </div>
-        </div>
 
-        <div class="lab">
-          <img src="imagensVL/manutencao.jpeg" alt="Manutenção">
-          <div class="meta">
-            <h4>Manutenção de Comput.</h4>
-            <p>Serviços e reparos de hardware.</p>
+          <div class="lab">
+            <button class="lab-btn" onclick="window.location.href='labs/manutencao.html'">
+              <img src="imagensVL/manutencao.jpeg" alt="Manutenção">
+              <div class="meta">
+                <h4>Manutenção de Comput.</h4>
+                <p>Serviços e reparos de hardware.ﾠﾠﾠﾠﾠﾠﾠﾠﾠﾠﾠﾠﾠﾠﾠﾠ</p>
+              </div>
+            </button>
           </div>
-        </div>
 
-        <div class="lab">
-          <img src="imagensVL/fisicaquim.jpg" alt="Química">
-          <div class="meta">
-            <h4>Química</h4>
-            <p>Análises, experimentos e segurança.</p>
+          <div class="lab">
+            <button class="lab-btn" onclick="window.location.href='labs/quimica.html'">
+              <img src="imagensVL/fisicaquim.jpg" alt="Química">
+              <div class="meta">
+                <h4>Química</h4>
+                <p>Análises, experimentos e segurança.ﾠﾠﾠﾠﾠﾠﾠﾠﾠ</p>
+              </div>
+            </button>
           </div>
-          
 
         </div>
+        <button id="arrowRight" class="arrow">›</button>
+    </section>
 
-      </div>
+
+    </div>
     </section>
 
     <!-- cta -->
@@ -511,8 +693,8 @@
       V-Lab • IFRN
     </footer>
   </main>
- <!--codigo vlibras aki-->
- <div vw class="enabled">
+  <!--codigo vlibras aki-->
+  <div vw class="enabled">
     <div vw-access-button class="active"></div>
     <div vw-plugin-wrapper>
       <div class="vw-plugin-top-wrapper"></div>
@@ -529,27 +711,28 @@
 
     function loadCache() {
       try { return JSON.parse(localStorage.getItem(CACHE_KEY) || '[]'); }
-      catch(e) { return []; }
+      catch (e) { return []; }
     }
     function saveCache(list) { localStorage.setItem(CACHE_KEY, JSON.stringify(list)); }
 
-    function salvarTexto(){
-      const txt = document.getElementById('textoHero').value.trim();
-      if(!txt) return alert('Digite algo para salvar.');
+    function salvarTextoRapido() {
+      const txt = document.getElementById('textoRapido').value.trim();
+      if (!txt) return alert('Digite algo para salvar.');
       const cache = loadCache();
-      cache.unshift({conteudo: txt, ts: Date.now()});
-      saveCache(cache.slice(0,50));
+      cache.unshift({ conteudo: txt, ts: Date.now() });
+      saveCache(cache.slice(0, 50));
       atualizarLista();
-      alert('Texto salvo! Clique no ícone do VLibras (canto) para traduzir.');
+      alert('Texto salvo! Clique no ícone do VLibras para traduzir.');
     }
 
-    function atualizarLista(){
+
+    function atualizarLista() {
       const list = loadCache();
-      const area = document.getElementById('listaHero');
-      if(!area) return;
-      if(list.length === 0){ area.innerHTML = '<div style="color:rgba(255,255,255,0.85)">Nenhum item salvo.</div>'; return; }
-      area.innerHTML = list.slice(0,6).map(i => {
-        const t = i.conteudo.length > 80 ? i.conteudo.slice(0,80) + '…' : i.conteudo;
+      const area = document.getElementById('listaRapido');
+      if (!area) return;
+      if (list.length === 0) { area.innerHTML = '<div style="color:rgba(255,255,255,0.85)">Nenhum item salvo.</div>'; return; }
+      area.innerHTML = list.slice(0, 6).map(i => {
+        const t = i.conteudo.length > 80 ? i.conteudo.slice(0, 80) + '…' : i.conteudo;
         return `<div style="padding:8px 10px;border-radius:8px;background:rgba(255,255,255,0.06);margin-bottom:8px;font-size:13px">${t}</div>`;
       }).join('');
     }
@@ -557,34 +740,68 @@
     window.addEventListener('load', atualizarLista);
 
     // Função p ativar o widget VL
-    function ativarVLibras(){
-      if(window.VLibras) { alert('VLibras já ativo'); return; }
+    function ativarVLibras() {
+      if (window.VLibras) { alert('VLibras já ativo'); return; }
       const s = document.createElement('script');
       s.src = 'https://vlibras.gov.br/app/vlibras-plugin.js';
       s.onload = () => {
         new window.VLibras.Widget('https://vlibras.gov.br/app');
         // mostrar o botão do VLibras
         const vw = document.querySelector('[vw]');
-        if(vw) vw.style.display = '';
+        if (vw) vw.style.display = '';
       };
       document.body.appendChild(s);
     }
 
     const row = document.getElementById("carousel");
-  const left = document.getElementById("arrowLeft");
-  const right = document.getElementById("arrowRight");
+    const left = document.getElementById("arrowLeft");
+    const right = document.getElementById("arrowRight");
 
-  const scrollAmount = 300; // distância do movimento em px
+    const scrollAmount = 300; // distância do movimento em px
 
-  right.onclick = () => {
-    row.scrollBy({ left: scrollAmount, behavior: "smooth" });
-  };
+    right.onclick = () => {
+      row.scrollBy({ left: scrollAmount, behavior: "smooth" });
+    };
 
-  left.onclick = () => {
-    row.scrollBy({ left: -scrollAmount, behavior: "smooth" });
-  };
+    left.onclick = () => {
+      row.scrollBy({ left: -scrollAmount, behavior: "smooth" });
+    };
 
-    
+    function atualizarLista(){
+  const list = loadCache();
+  const area = document.getElementById('listaRapido');
+  if(!area) return;
+
+  if(list.length === 0){
+    area.innerHTML = '<div style="color:rgba(0,0,0,0.85)">Nenhum item salvo.</div>';
+    return;
+  }
+
+  area.innerHTML = list.slice(0,6).map((i, idx) => {
+    const t = i.conteudo.length > 80 ? i.conteudo.slice(0,80) + '…' : i.conteudo;
+    return `
+      <div style="display:flex;justify-content:space-between;align-items:center;
+                  padding:8px 10px;border-radius:8px;background:rgba(255,255,255,0.06);
+                  margin-bottom:8px;font-size:13px">
+        <span>${t}</span>
+        <button onclick="excluirTexto(${idx})" 
+                style="background:gray;color:white;border:none;border-radius:6px;
+                       padding:4px 8px;cursor:pointer">Excluir</button>
+      </div>`;
+  }).join('');
+      }
+
+    function excluirTexto(index){
+    const cache = loadCache();
+    cache.splice(index, 1); 
+    saveCache(cache);
+    atualizarLista();
+     }
+
+
+
+
   </script>
 </body>
+
 </html>
