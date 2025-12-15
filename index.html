@@ -7,6 +7,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>V-Lab</title>
+  <link rel="shortcut icon" href="imagensVL/logobranca.png" type="image/x-icon">
 
   <!-- fontes -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -17,6 +18,24 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=TikTok+Sans:opsz,wght@12..36,300..900&display=swap"
     rel="stylesheet">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bagel+Fat+One&display=swap" rel="stylesheet">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Changa+One:ital@0;1&display=swap" rel="stylesheet">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Zain:ital,wght@0,200;0,300;0,400;0,700;0,800;0,900;1,300;1,400&display=swap" rel="stylesheet">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cal+Sans&display=swap" rel="stylesheet">
+
+
 
   <script src="https://kit.fontawesome.com/958d1abdde.js" crossorigin="anonymous"></script>
 
@@ -107,13 +126,15 @@
       color: var(--muted);
       font-weight: 600;
       padding: 8px 12px;
-      border-radius: 10px;
+      border-radius: 18px;
       transition: all .18s ease;
-      font-size: 14px;
+      font-size: 18px;
+      font-family: "zain", sans-serif;
+      font-style: normal;
     }
 
     nav.main-nav a:hover {
-      background: rgba(0, 0, 0, 0.04);
+      background: rgba(5, 105, 109, 0.048);
       color: var(--accent)
     }
 
@@ -177,6 +198,12 @@
       line-height: 1.04;
       font-weight: 700;
       letter-spacing: -0.02em;
+      color: rgb(250, 250, 250);
+      margin: 0 0 6px;
+      font-weight: 800;
+      font-size: 65px;
+      font-family: "zain", sans-serif;
+      font-style: normal;
     }
 
     .hero p {
@@ -311,7 +338,6 @@
       gap: 12px;
       box-shadow: var(--shadow-soft);
       border: 1px solid rgba(0, 0, 0, 0.03);
-
     }
 
     .panel-row2 {
@@ -320,6 +346,13 @@
 
     .traduzir-rapido h2 {
       text-align: center;
+      font-family: "Changa One", sans-serif;
+      font-size: 35px;
+      font-style: normal;
+      color: rgb(65, 146, 156);
+      font-family: "Zain", sans-serif;
+      font-weight: 800;
+      font-style: normal;
     }
 
 
@@ -328,9 +361,19 @@
       margin-top: 18px;
     }
 
-    .labs h3 {
+    .labs h2 {
       margin-bottom: 12px;
-      font-size: 20px
+      font-family: "TikTok Sans", sans-serif;
+      font-optical-sizing: auto;
+      font-weight: weight;
+      font-style: normal;
+      font-variation-settings:
+      "slnt" 0,
+      "wdth" 100;
+      color: rgb(65, 146, 156);
+      font-family: "Zain", sans-serif;
+      font-size: 35px;
+      font-style: normal;
     }
 
     .carousel-container {
@@ -340,16 +383,18 @@
     }
 
     .arrow {
-      background: rgb(243, 243, 243);
+      background: rgb(238, 238, 238);
       border: none;
       font-size: 30px;
       color: rgb(15, 121, 121);
       cursor: pointer;
       padding: 4px 10px;
       border-radius: 50%;
-      /*  box-shadow: 0 2px 6px rgba(0,0,0,0.15); */
       z-index: 10;
       transition: 0.2s;
+      font-family: "Bagel Fat One", system-ui;
+      font-weight: 400;
+      font-style: normal;
     }
 
     .arrow:hover {
@@ -362,10 +407,6 @@
       overflow: hidden;
       padding-bottom: 10px;
       padding-top: 10px;
-    }
-
-    .lab {
-      max-width: 250px;
     }
 
     .lab {
@@ -390,7 +431,10 @@
 
     .lab h4 {
       margin: 0 0 6px;
-      font-size: 16px
+      color: rgb(119, 119, 119);
+      font-family: "Zain", sans-serif;
+      font-size: 20px;
+      font-style: normal;
     }
 
     .lab p {
@@ -443,7 +487,12 @@
     }
 
     .cta h3 {
-      margin: 0
+      margin: 0;
+      font-family: "Zain", sans-serif;
+      font-size: 20px;
+      font-weight: 700;
+      font-style: normal;
+      color: rgb(68, 126, 126);
     }
 
     .cta p {
@@ -460,8 +509,8 @@
     }
 
     section {
-      padding-top: 90px;
-      padding-bottom: 90px;
+      padding-top: -10px;
+      padding-bottom: 10px;
     }
 
     .features {
@@ -469,19 +518,10 @@
 
     }
 
-
-
     .primary {
       padding: 20px 40px;
       margin-top: -10px;
     }
-
-    .labs-section {
-      padding: 40px 40px 20px;
-      margin-top: -30px;
-      /* sobe os labs */
-    }
-
 
     /* responsivo */
     @media (max-width:900px) {
@@ -603,7 +643,7 @@
 
     <!-- LABS -->
     <section id="labs" class="labs">
-      <h2>Laboratórios</h2>
+      <h2>Laboratórios</h2> 
       <div class="labs-row" aria-label="Lista de laboratórios">
 
         <!-- transformar em botão --><button id="arrowLeft" class="arrow">‹</button>
@@ -625,7 +665,7 @@
               <img src="imagensVL/eletro.jpeg" alt="Eletrônica">
               <div class="meta">
                 <h4>Eletrônica</h4>
-                <p>Montagem de circuitos e arduíno.ﾠﾠﾠﾠﾠﾠﾠﾠﾠﾠﾠﾠﾠﾠﾠﾠﾠﾠﾠﾠﾠﾠﾠﾠﾠﾠ</p>
+                <p>Montagem de circuitos e arduíno.ﾠﾠﾠﾠﾠﾠﾠﾠﾠﾠﾠﾠﾠﾠ</p>
               </div>
             </button>
           </div>
@@ -773,7 +813,7 @@
   if(!area) return;
 
   if(list.length === 0){
-    area.innerHTML = '<div style="color:rgba(0,0,0,0.85)">Nenhum item salvo.</div>';
+    area.innerHTML = '<div style="color: gray">Nenhum item salvo.</div>';
     return;
   }
 
@@ -797,10 +837,7 @@
     saveCache(cache);
     atualizarLista();
      }
-
-
-
-
+     
   </script>
 </body>
 
